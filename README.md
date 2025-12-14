@@ -1,61 +1,61 @@
-🌿 Webots Drone Pollution Detection System
-📌 Overview
+# WEBOTS DRONE POLLUTION DETECTION SYSTEM
 
-This project simulates an autonomous drone that scans a forest environment to detect pollution sources and reports their GPS coordinates in real time. Pollution is represented by red-colored objects, and detection is performed using an onboard camera and GPS sensor within the Webots simulation environment.
+## OVERVIEW
 
-📂 Project Structure
+This project simulates a drone that autonomously scans a forest region to detect pollution sources and reports their GPS coordinates.
+
+---
+
+## PROJECT STRUCTURE
+```
 pollution_detection_drone/
 ├── worlds/
-│   └── forest_pollution.wbt        # Main simulation world
+│   └── forest_pollution.wbt       # Main simulation world
 ├── controllers/
 │   └── drone_controller/
-│       └── drone_controller.py     # Autonomous drone control logic
-└── README.md                       # Project documentation
+│       └── drone_controller.py    # Drone control logic
+└── README.md                      # This file
+```
 
-▶️ How to Run the Simulation
+---
 
-Open Webots
+## HOW TO RUN
 
-Click File → Open World
+1. Open Webots
+2. Go to **File → Open World**
+3. Select: `worlds/forest_pollution.wbt`
+4. Click the **Play button (▶)**
+5. Watch the console for pollution detection alerts
 
-Select worlds/forest_pollution.wbt
+---
 
-Click the Play (▶) button
+## WHAT IT DOES
 
-Observe the console output for pollution detection alerts and GPS coordinates
+- Drone takes off to 10 meters altitude
+- Flies in a grid pattern over the forest
+- Camera detects red pollution sources
+- Prints GPS coordinates when pollution is found
+- Returns to start position when scan is complete
 
-🚁 System Functionality
+---
 
-Drone takes off to a fixed altitude of 10 meters
+## CUSTOMIZATION
 
-Navigates the forest using a grid / waypoint-based scanning pattern
+Edit `controllers/drone_controller/drone_controller.py`:
 
-Onboard camera detects red-colored pollution sources
+| Parameter | Description | Default Value |
+|-----------|-------------|---------------|
+| `TARGET_ALTITUDE` | Change scanning height | 10 meters |
+| `RED_THRESHOLD` | Adjust detection sensitivity | 0.2 |
+| `SCAN_AREA_SIZE` | Change area coverage | 30x30 meters |
+| `SCAN_STEP` | Distance between scan lines | 5 meters |
 
-When pollution is detected:
+---
 
-GPS coordinates are captured
+## POLLUTION DETECTION
 
-Alert is printed in the console
-
-After completing the scan, the drone returns to its starting position
-
-⚙️ Customization Options
-
-You can modify the system behavior by editing:
-
-controllers/drone_controller/drone_controller.py
-
-Configurable Parameters
-Parameter	Description	Default Value
-TARGET_ALTITUDE	Drone scanning altitude	10 meters
-RED_THRESHOLD	Color detection sensitivity	0.2
-SCAN_AREA_SIZE	Total scan area	30 × 30 meters
-SCAN_STEP	Distance between scan lines	5 meters
-🚨 Pollution Detection Output
-
-When a pollution source is detected, the console displays:
-
+When pollution is detected, you'll see output like:
+```
 ==================================================
 [ALERT] POLLUTION DETECTED!
 ==================================================
@@ -65,33 +65,33 @@ Location coordinates:
   Z: 10.00 meters (altitude)
 Time: 45.2 seconds
 ==================================================
+```
 
-🛠 Troubleshooting
+---
 
-Problem: Drone does not move
-Solution: Ensure the Play (▶) button is pressed in Webots
+## TROUBLESHOOTING
 
-Problem: No pollution detected
-Solution:
+| Problem | Solution |
+|---------|----------|
+| Drone doesn't move | Make sure you pressed Play button |
+| No pollution detected | Lower `RED_THRESHOLD` value or verify pollution sources exist |
+| Controller errors | Check Python installation and controller name matches folder |
 
-Reduce RED_THRESHOLD value
+---
 
-Verify red pollution objects exist in the world file
+## REQUIREMENTS
 
-Problem: Controller errors
-Solution:
+- **Webots R2023b or later**
+- **Python 3.8+**
 
-Check Python installation
+---
 
-Ensure controller folder name matches controller file name
+## RESOURCES
 
-✅ Requirements
+For help, visit: [Webots Documentation](https://cyberbotics.com/doc/guide/index)
 
-Webots R2023b or later
+---
 
-Python 3.8 or higher
+## LICENSE
 
-📖 References
-
-Webots Documentation:
-https://cyberbotics.com/doc/guide/index
+This project is provided as-is for educational purposes.
