@@ -1,5 +1,7 @@
 # WEBOTS DRONE POLLUTION DETECTION SYSTEM
 
+https://github.com/user-attachments/assets/84c1c86d-2755-42c6-9a61-0a296f8f3db5
+
 ## OVERVIEW
 
 This project simulates a drone that autonomously scans a forest region to detect pollution sources and reports their GPS coordinates.
