@@ -1,0 +1,207 @@
+#VRML_SIM R2023b utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/floors/protos/RectangleArena.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/trees/protos/Pine.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/robots/dji/mavic/protos/Mavic2Pro.proto"
+
+WorldInfo {
+  info [
+    "Forest Pollution Detection Simulation"
+  ]
+  title "Drone Pollution Detection"
+  basicTimeStep 8
+  defaultDamping Damping {
+    linear 0.5
+    angular 0.5
+  }
+}
+
+Viewpoint {
+  orientation -0.4 -0.4 -0.8 1.76
+  position 5 5 4
+  follow "Mavic 2 PRO"
+  followType "Tracking Shot"
+}
+
+TexturedBackground {
+}
+
+TexturedBackgroundLight {
+}
+
+RectangleArena {
+  translation 0 0 0
+  floorSize 80 80
+  floorTileSize 2 2
+  floorAppearance PBRAppearance {
+    baseColorMap ImageTexture {
+      url [
+        "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/default/worlds/textures/grass.jpg"
+      ]
+    }
+    roughness 1
+    metalness 0
+  }
+  wallHeight 0.1
+}
+
+# Forest Trees
+Pine {
+  translation -15 -12 0
+  name "pine1"
+}
+Pine {
+  translation -8 -18 0
+  name "pine2"
+}
+Pine {
+  translation 5 -15 0
+  name "pine3"
+}
+Pine {
+  translation 12 -8 0
+  name "pine4"
+}
+Pine {
+  translation -10 5 0
+  name "pine5"
+}
+Pine {
+  translation 3 8 0
+  name "pine6"
+}
+Pine {
+  translation 15 12 0
+  name "pine7"
+}
+Pine {
+  translation -18 10 0
+  name "pine8"
+}
+Pine {
+  translation -5 -5 0
+  name "pine9"
+}
+Pine {
+  translation 10 2 0
+  name "pine10"
+}
+
+# Pollution Source 1 (Red Sphere) - AT DRONE ALTITUDE 8m
+Solid {
+  translation -5 -10 8
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1 0 0
+        roughness 0.3
+        metalness 0.1
+        emissiveColor 0.8 0 0
+        emissiveIntensity 1.5
+      }
+      geometry Sphere {
+        radius 1.0
+      }
+    }
+  ]
+  name "pollution_1"
+}
+
+# Pollution Source 2 (Red Sphere) - AT DRONE ALTITUDE 8m
+Solid {
+  translation 8 -5 8
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1 0 0
+        roughness 0.3
+        metalness 0.1
+        emissiveColor 0.8 0 0
+        emissiveIntensity 1.5
+      }
+      geometry Sphere {
+        radius 1.0
+      }
+    }
+  ]
+  name "pollution_2"
+}
+
+# Pollution Source 3 (Red Sphere) - AT DRONE ALTITUDE 8m
+Solid {
+  translation -12 8 8
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1 0 0
+        roughness 0.3
+        metalness 0.1
+        emissiveColor 0.8 0 0
+        emissiveIntensity 1.5
+      }
+      geometry Sphere {
+        radius 1.0
+      }
+    }
+  ]
+  name "pollution_3"
+}
+
+# Additional Pollution Sources for better coverage
+# Pollution Source 4
+Solid {
+  translation 0 -12 8
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1 0 0
+        roughness 0.3
+        metalness 0.1
+        emissiveColor 0.8 0 0
+        emissiveIntensity 1.5
+      }
+      geometry Sphere {
+        radius 1.0
+      }
+    }
+  ]
+  name "pollution_4"
+}
+
+# Pollution Source 5
+Solid {
+  translation 8 2 8
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1 0 0
+        roughness 0.3
+        metalness 0.1
+        emissiveColor 0.8 0 0
+        emissiveIntensity 1.5
+      }
+      geometry Sphere {
+        radius 1.0
+      }
+    }
+  ]
+  name "pollution_5"
+}
+
+# DJI Mavic 2 PRO Drone
+Mavic2Pro {
+  translation 0 0 0.1
+  rotation 0 0 1 0
+  cameraPitch -0.3
+  controller "drone_controller"
+  cameraSlot [
+    Camera {
+      translation 0 0.05 0
+      width 400
+      height 240
+      near 0.2
+    }
+  ]
+}
