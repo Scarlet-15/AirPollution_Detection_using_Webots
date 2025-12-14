@@ -33,7 +33,7 @@ pollution_detection_drone/
 
 ## WHAT IT DOES
 
-- Drone takes off to 10 meters altitude
+- Drone takes off to 8 meters altitude
 - Flies in a grid pattern over the forest
 - Camera detects red pollution sources
 - Prints GPS coordinates when pollution is found
@@ -47,7 +47,7 @@ Edit `controllers/drone_controller/drone_controller.py`:
 
 | Parameter | Description | Default Value |
 |-----------|-------------|---------------|
-| `TARGET_ALTITUDE` | Change scanning height | 10 meters |
+| `TARGET_ALTITUDE` | Change scanning height | 8 meters |
 | `RED_THRESHOLD` | Adjust detection sensitivity | 0.2 |
 | `SCAN_AREA_SIZE` | Change area coverage | 30x30 meters |
 | `SCAN_STEP` | Distance between scan lines | 5 meters |
@@ -64,7 +64,7 @@ When pollution is detected, you'll see output like:
 Location coordinates:
   X: -5.23 meters
   Y: -10.15 meters
-  Z: 10.00 meters (altitude)
+  Z: 8.00 meters (altitude)
 Time: 45.2 seconds
 ==================================================
 ```
