@@ -16,7 +16,7 @@ pollution_detection_drone/
 ├── controllers/
 │   └── drone_controller/
 │       └── drone_controller.py    # Drone control logic
-└── README.md                      # This file
+
 ```
 
 ---
